@@ -1,0 +1,38 @@
+Maruti Crediantial
+Username: Atul_tmc
+Password: Tmc@1234
+
+oncloud, onprime
+system api->oncloud
+experice api ->oncloud
+process api---> onprime
+databases
+
+dms
+svoc
+single view of cusotmer
+
+Api name -> Maruti Name -> database name - > api
+s-msil-sdfc-api
+s-msil-dms-api
+
+p-msil-crm-api
+
+x-msil-sfdc-web
+
+<-----------find logs----------->
+Downloud logs->
+
+onprime ->
+	connect anypoint ->production desktop-> c mule logs
+	pickup event id
+	and search
+copy the directery of log files
+open notepad++ 
+ctrl+f	
+find in files
+
+
+
+
+

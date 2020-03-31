@@ -1,0 +1,3 @@
+(now() - |PT15M|) as LocalDateTime {format: "yyyy-MM-ddThh:mm:ssZ"} as String {format: "yyyy-MM-dd'T'hh:mm:ss'Z'"}
+
+(now() - |P15D|) as LocalDateTime {format: "yyyy-MM-ddThh:mm:ssZ"} as String {format: "yyyy-MM-dd'T'hh:mm:ss'Z'"}

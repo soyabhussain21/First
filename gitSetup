@@ -1,0 +1,17 @@
+First Create acocount on git
+create a repertory 
+setup git in your pc : https://git-scm.com/download/win
+Retrieve Command:
+git clone -b master --single-branch https://github.com/soyabhussain21/First.git 
+run this command
+
+Deploye COmmand:
+
+go into your folder{cd yourFolder}
+	for first time
+		git config --global user.email "you@example.com"
+		git config --global user.name "Your Name"
+git add .
+git commit -am "test"
+git push -u origin originName {example:master}
+

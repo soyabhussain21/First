@@ -1,0 +1,72 @@
+Id AccRecTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('User Account').getRecordTypeId();
+
+Account a = new Account(Name='TestAccount' + 1,RecordTypeId=AccRecTypeId);
+
+insert a; 
+
+Id AccRecTypeId1 = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Customer').getRecordTypeId();
+
+Account a1 = new Account(recordTypeId=AccRecTypeId1 ,FirstName='test',LastName='account',MiddleName='pro',PersonMobilePhone = '9643442338',PersonBirthdate=date.parse('05/11/2012'));
+
+insert a1;
+
+ 
+
+Id oppRecTypeId = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Vehicle Sales').getRecordTypeId();
+
+String dataList = '{"addSchemes":"{"objROfferId":"00k0k000005IDDHAA4","offersText":null,"schemeCode":"SS000000AK0319190472","cashPaymentData":92850,"financeAmountData":"450000","otherDiscountData":null,"ruralDiscountData":3500,"corporateDiscountData":null,"exchangeBonusData":0,"exchangeData":null,"OfferData":null,"otherDiscountValue":false,"ruralOffersValue":true,"exchangeValue":false,"exchangeBonusValue":false,"corporateDiscountValue":false}","registrationAmountVariant":"{"priceBookEntryId":"01u0k000003KnLzAAK","UnitPrice":"5000","Quantity":1,"opporrtunityId":"0060k000008g9I0AAI","registerId":"00k0k000005IDD7AAO"}","exShowRoomVariant":"{"priceBookEntryId":"01u0k000003KnLzAAK","UnitPrice":"537850.00","Quantity":1,"opporrtunityId":"0060k000008g9I0AAI","exShowId":"00k0k000005IDD5AAO"}","selectedColorVariant":{"Variant__r":{"Id":"01t0k0000051AVRAA2","ProductCode":"ER4CD4"},"Color_Type__c":"NM","Variant__c":"01t0k0000051AVRAA2","Color_Code__c":"26U","Name":"SUPERIOR WHITE","Id":"a070k000008D4O7AAK"},"selectedVariant":{"Loyalty_Amount__c":500,"Extended_Warranty_3_year__c":2000,"Extended_Warranty_2_year__c":1500,"Extended_Warranty_1_year__c":1000,"Name":"BALENO ALTURA M","Id":"01t0k0000051AVRAA2"},"addAccessories":"[{"priceBookEntryId":"01u0k000003KoxEAAS","unitPrice":2000,"price":4000,"Maximum_Quantity__c":5,"Minimum_Quantity__c":1,"Id":"01t0k000005R2QpAAK","quantity":"2","Name":"Car Stereo 4","accId":"00k0k000005IDD6AAO"}]","addComponent":"[{"isDisabled":true,"showLabel":false,"isExchangedWarrenty":true,"isChecked":true,"value":"1000","label":"Extended Warranty","comId":"00k0k000005IDDGAA4"},{"isDisabled":true,"showLabel":true,"isChecked":true,"value":500,"label":"Loyalty","comId":"00k0k000005IDD8AAO"},{"isDisabled":false,"showLabel":true,"isChecked":true,"value":"2500","label":"Insurance","comId":"00k0k000005IDD9AAO"},{"isDisabled":false,"showLabel":true,"isChecked":false,"value":"","label":"Municipal Charges"},{"isDisabled":false,"showLabel":true,"isChecked":false,"value":"","label":"Number Plate Charges"},{"isDisabled":false,"showLabel":true,"isChecked":false,"value":"","label":"Road Tax"},{"validityValue":"2 Yrs - 20000 KMs","packageValue":"Economy","isDisabled":false,"showLabel":true,"isMCP":true,"isChecked":true,"value":"2000","label":"MCP","comId":"00k0k000005IDDAAA4"}]","headerValue":["Customer Name : ADNAN F DANE","DMS Enquiry Number : ENQ 00012","Variant Name : BALENO ALTURA M"]}';
+
+Opportunity opp = new Opportunity();
+
+opp.Name = 'John ';
+
+opp.recordTypeId = oppRecTypeId;
+
+opp.CloseDate=System.today().addMonths(1);
+
+opp.First_Name__c='John';
+
+opp.Middle_Name__c='Brook';
+
+opp.Last_Name__c='Wright';
+
+opp.Line_Item_Summary__c=dataList;
+
+opp.Line_Of_Business__c ='Nexa';
+
+opp.accountId = a.id;
+
+opp.StageName = 'New';
+
+opp.Customer__c= a1.Id;
+
+opp.ownerId = userinfo.getUserId();
+
+opp.Booking_Number__c = 'Rahul123'; 
+opp.Mobile__c = '9643442338'; 
+opp.Booking_Date__c = System.today();//.addDays(-8) 
+insert opp;  
+
+MC_Communication__c mc = new MC_Communication__c(); 
+mc.Type__c = 'Escalation'; 
+mc.Escalation_Date_Time__c = DateTime.newInstance(2019, 11, 15, 11, 25, 33); 
+mc.General_Field_1__c = 'DSE Allocation Time'; 
+mc.Enquiry_MD__c = opp.Id; 
+mc.Type__c = 'BCR'; 
+insert mc;
+
+MC_Communication__c mc2 = new MC_Communication__c(); 
+mc2.Type__c = 'Escalation'; 
+mc2.Escalation_Date_Time__c = DateTime.newInstance(2019, 11, 15, 11, 25, 33); 
+mc2.General_Field_1__c = 'DSE Allocation Time'; 
+mc2.Enquiry_MD__c = opp.Id; 
+mc2.Type__c = 'Quote'; 
+insert mc2;
+
+MC_Communication__c mc3 = new MC_Communication__c(); 
+mc3.Type__c = 'Escalation'; 
+mc3.Escalation_Date_Time__c = DateTime.newInstance(2019, 11, 15, 11, 25, 33); 
+mc3.General_Field_1__c = 'DSE Allocation Time'; 
+mc3.Enquiry_MD__c = opp.Id; 
+mc3.Type__c = 'Send Brochure'; 
+insert mc3;

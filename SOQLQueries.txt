@@ -1,0 +1,34 @@
+[Select id,Channel__c, Enquiry_MD__r.Dealership__r.Parent_Group__c, Enquiry_MD__r.Dealership__r.Dealer_Map_Code__c,
+                                                   Enquiry_MD__r.Dealership__r.Dealer_Location__c, Enquiry_MD__r.DMS_Enquiry_Name__c, Enquiry_MD__r.Booking_Number__c,
+                                                   type__c, Enquiry_MD__r.Mobile__c, Enquiry_MD__r.First_Name__c, Enquiry_MD__r.Middle_Name__c, Enquiry_MD__r.Last_Name__c,
+                                                   URL_1__c, CreatedDate 
+                                                   from MC_Communication__c 
+                                                   where Type__c = 'Quote' 
+                                                   and CreatedDate >= :Datetime.now().addMinutes(-15) ]
+												   
+												   
+												   
+[SELECT id,Channel__c, Enquiry_MD__r.Dealership__r.Parent_Group__c, Enquiry_MD__r.Dealership__r.Dealer_Map_Code__c,
+                                                 Enquiry_MD__r.Dealership__r.Dealer_Location__c, Enquiry_MD__r.DMS_Enquiry_Name__c, 
+                                                 Enquiry_MD__r.Booking_Number__c, type__c, Enquiry_MD__r.Mobile__c, Enquiry_MD__r.First_Name__c,
+                                                 Enquiry_MD__r.Middle_Name__c, Enquiry_MD__r.Last_Name__c, URL_1__c, CreatedDate 
+                                                 from MC_Communication__c 
+                                                 where Type__c = 'BCR' 
+                                                 and CreatedDate >=:Datetime.now().addMinutes(-15)]
+												 
+[select id,dealership__r.Channel__c, Dealership__r.Parent_Group__c,dealership__r.Dealer_Map_Code__c,
+                                                         dealership__r.Dealer_Location__c, DMS_Enquiry_Name__c, Booking_Number__c, StageName, Mobile__c,
+                                                         First_Name__c, Middle_Name__c, Last_Name__c, Post_Booking_Feedback__c, Booking_Date__c
+                                                         from opportunity 
+                                                         where Booking_Number__c != null
+                                                         and Booking_Date__c = TODAY
+                                                         AND LastModifiedDate >=:Datetime.now().addMinutes(-15)]
+														 
+[select id,Channel__c, Enquiry_MD__r.Dealership__r.Parent_Group__c, Enquiry_MD__r.Dealership__r.Dealer_Map_Code__c,
+                                                          Enquiry_MD__r.Dealership__r.Dealer_Location__c, Enquiry_MD__r.DMS_Enquiry_Name__c, Enquiry_MD__r.Booking_Number__c,
+                                                          type__c, Enquiry_MD__r.Mobile__c, Enquiry_MD__r.First_Name__c, Enquiry_MD__r.Middle_Name__c, Enquiry_MD__r.Last_Name__c,
+                                                          URL_1__c, CreatedDate
+                                                          from MC_Communication__c 
+                                                          where Type__c = 'Send Brochure' 
+                                                          and General_Field_3__c = 'SMS' 
+                                                          and CreatedDate >=:Datetime.now().addMinutes(-15)]

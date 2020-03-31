@@ -1,0 +1,56 @@
+[
+  {
+    "Dealership__r": {
+      "Dealer_Map_Code__c": "10749",
+      "Parent_Group__c": "DDMOT",
+      "Id": null,
+      "type": "Account",
+      "Channel__c": "NRM",
+      "Dealer_Location__c": "MAY"
+    },
+    "Booking_Date__c": "2020-01-06",
+    "DMS_Enquiry_Name__c": "ENQ19005965",
+    "StageName": "Booking",
+    "Booking_Number__c": "SOB19001958",
+    "Mobile__c": null,
+    "Post_Booking_Feedback__c": "https://marutisuzukiindia.secure.force.com/TakeSurvey?id=a0U7F00000FVWzA&enqId=0067F00000XqI9k",
+    "First_Name__c": "MR ROOP SINGH",
+    "Middle_Name__c": null,
+    "Id": "0067F00000XqI9kQAF",
+    "type": "Opportunity",
+    "Last_Name__c": null
+  }
+]
+
+
+[
+  {
+    "Enquiry_MD__r": {
+      "Dealership__r": {
+        "Dealer_Map_Code__c": "10749",
+        "Parent_Group__c": "DDMOT",
+        "Id": null,
+        "type": "Account",
+        "Dealer_Location__c": "MAY"
+      },
+      "DMS_Enquiry_Name__c": "ENQ19018699",
+      "Booking_Number__c": "SOB19001944",
+      "Mobile__c": "8949190682",
+      "First_Name__c": "PREET",
+      "Middle_Name__c": null,
+      "Id": null,
+      "type": "Opportunity",
+      "Last_Name__c": "WALIA"
+    },
+    "Type__c": "BCR",
+    "URL_1__c": "https://marutisuzuki.my.salesforce.com/sfc/p/7F000004dGve/a/7F000000Z02U/UgJYDqDCzsVA4nwt1y1n99lmhGkTJKylnc1kR97Yksk",
+    "CreatedDate": "2020-01-04T04:39:44.000Z",
+    "Id": "a0I7F00000SqRlmUAF",
+    "type": "MC_Communication__c",
+    "Channel__c": "NRM"
+  }
+]
+
+
+
+
